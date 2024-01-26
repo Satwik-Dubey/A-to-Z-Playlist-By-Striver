@@ -1,0 +1,17 @@
+class Solution {
+    static String armstrongNumber(int n){
+        String sb="Yes";
+        String sbn="No";
+        int Arms=0;
+       int  Original=n;
+        while(n>0){
+           int rem=n%10;
+             Arms=Arms+(rem*rem*rem);
+            n=n/10;
+        }
+        if(Arms!=Original){
+            return sbn;
+        }
+        return sb;
+    }
+}
