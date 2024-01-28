@@ -1,0 +1,24 @@
+class Solution {
+    int print2largest(int arr[], int n) {
+        if (arr.length < 2) {
+            return -1; // Return some error value as there aren't enough elements
+        }
+
+        Arrays.sort(arr);
+        int largest = arr[arr.length - 1];
+        int secondLargest = Integer.MIN_VALUE;
+
+        for (int i = arr.length - 2; i >= 0; i--) {
+            if (arr[i] < largest) {
+                secondLargest = arr[i];
+                break;
+            }
+        }
+
+        if (secondLargest == Integer.MIN_VALUE) {
+            return -1; // Indicates that a second largest doesn't exist
+        } else {
+            return secondLargest;
+        }
+    }
+}
