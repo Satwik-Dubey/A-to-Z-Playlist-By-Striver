@@ -1,0 +1,36 @@
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int j = -1;
+        int n = nums.length;
+
+        // Find the first zero
+        for (int i = 0; i < n; i++) {
+            if (nums[i] == 0) {
+                j = i;
+                break;
+            }
+        }
+
+        // If no zero is found, return
+        if (j == -1) {
+            return;
+        }
+
+        // Move non-zero elements to the left
+        for (int i = j + 1; i < n; i++) {
+            if (nums[i] != 0) {
+                nums[j] = nums[i];
+                // If there is a zero before, set the current position to zero
+                if (i != j) {
+                    nums[i] = 0;
+                }
+                j++;
+            }
+        }
+
+        // Fill the remaining elements with zeroes
+        for (int i = j; i < n; i++) {
+            nums[i] = 0;
+        }
+    }
+}
